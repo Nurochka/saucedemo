@@ -16,6 +16,10 @@ public class CartPage extends Page {
     @FindBy(className = "shopping_cart_badge")
     private WebElement cartCounter;
 
+    @FindBy(xpath = "//div[@class='cart_item']//button")
+    private List<WebElement> listOfRemoveButtonsInCart;
+
+
     public List<WebElement> getListOfProductsInCart() {
         return listOfProductsInCart;
     }
@@ -36,6 +40,10 @@ public class CartPage extends Page {
 
     public WebElement getCartCounter() {
         return cartCounter;
+    }
+
+    public List<WebElement> getListOfRemoveButtonsInCart() {
+        return listOfRemoveButtonsInCart;
     }
 }
 

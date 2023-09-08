@@ -42,4 +42,17 @@ public class CartTest extends BaseTest{
         int counterValue = cartPageService.getCartCounterValue();
         Assert.assertEquals(numberOfProductsInCart, counterValue);
     }
+
+    @Test
+    public void checkProductCanBeRemovedFromCartTest() {
+        InventoryPageService inventoryPageService = loginPageService.login(user);
+        productIndex = 3;
+        inventoryPageService.clickAddToCartButtonByIndex(productIndex);
+        CartPageService cartPageService = inventoryPageService.navigateToShoppingCart();
+        int initialNumberOfProductsInCart = cartPageService.getProductNamesInCart().length;
+        cartPageService.RemoveFirstProductInCart();
+        int numberOfProductsInCartAfterRemoving = cartPageService.getProductNamesInCart().length;
+        int removedQuantity = initialNumberOfProductsInCart - numberOfProductsInCartAfterRemoving;
+        Assert.assertEquals(removedQuantity, 1);
+    }
 }

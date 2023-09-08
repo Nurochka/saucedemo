@@ -23,4 +23,10 @@ public class CartPageService {
         return cartCounterValue;
     }
 
+    public CartPageService RemoveFirstProductInCart() {
+        cartPage.getListOfRemoveButtonsInCart().get(0).click();
+        return this;
+    }
+
+
 }
