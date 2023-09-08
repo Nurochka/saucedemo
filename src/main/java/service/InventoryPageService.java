@@ -1,6 +1,7 @@
 package service;
 
 import model.User;
+import page.CartPage;
 import page.InventoryPage;
 
 public class InventoryPageService {
@@ -23,11 +24,11 @@ public class InventoryPageService {
     public String getProductNameByIndex(int index) {
         String[] listOfProductsName = this.getNamesOfAllProducts();
         int numberOfProducts = listOfProductsName.length;
-        String randomProductName = null;
+        String ProductNameByIndex = null;
         if (index < numberOfProducts && index >= 0) {
-            randomProductName = listOfProductsName[index];
+            ProductNameByIndex = listOfProductsName[index];
         }
-        return randomProductName;
+        return ProductNameByIndex;
     }
 
     public InventoryPageService clickAddToCartButtonByIndex(int index) {
@@ -47,6 +48,10 @@ public class InventoryPageService {
         return buttonName;
     }
 
+    public CartPageService navigateToShoppingCart(){
+        inventoryPage.getCartButton().click();
+        return new CartPageService();
+    }
 
 
 

@@ -15,6 +15,10 @@ public class InventoryPage extends Page {
     @FindBy(xpath = "//div[@class='inventory_item']//button")
     private List<WebElement> listOfProductButtons;
 
+    @FindBy(xpath = "//a[@class='shopping_cart_link']")
+    private WebElement cartButton;
+
+
     public String getTextOfNameOfMainPageSection() {
         return nameOfMainPageSection.getText();
     }
@@ -37,4 +41,7 @@ public class InventoryPage extends Page {
         return listOfProductButtons;
     }
 
+    public WebElement getCartButton() {
+        return cartButton;
+    }
 }
